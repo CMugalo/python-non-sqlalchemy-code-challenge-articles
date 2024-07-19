@@ -6,7 +6,18 @@ class Article:
         
 class Author:
     def __init__(self, name):
-        self.name = name
+        self._name = name
+    
+    @property
+    def name(self):
+        return self._name
+    
+    @name.setter 
+    def name(self, name):
+        if name != self.name:
+            return self._name
+        elif isinstance(name, str) and len(name) > 0:
+            self._name = name
 
     def articles(self):
         pass
