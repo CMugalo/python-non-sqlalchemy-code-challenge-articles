@@ -56,13 +56,12 @@ class Author:
         return list(unique_magazines)
 
     def add_article(self, magazine, title):
-        pass
-        # if not isinstance(magazine, Magazine):
-        #     raise Exception
-        # return Article(self, magazine, title)
+        if not isinstance(magazine, Magazine):
+            raise Exception
+        return Article(self, magazine, title)
 
     def topic_areas(self):
-        pass
+        pass 
 
 class Magazine:
 
