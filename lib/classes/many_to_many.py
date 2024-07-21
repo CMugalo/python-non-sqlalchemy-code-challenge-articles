@@ -36,6 +36,7 @@ class Author:
     def __init__(self, name):
         self._name = name
         Author.all.append(self)
+        self.author_articles = []
     
     @property
     def name(self):
@@ -58,10 +59,14 @@ class Author:
     def add_article(self, magazine, title):
         if not isinstance(magazine, Magazine):
             raise Exception
+        self.author_articles.append(magazine)
         return Article(self, magazine, title)
 
     def topic_areas(self):
-        pass 
+        if [magazine.category for magazine in self.author_articles] == []:
+            return None
+        category_set = set([magazine.category for magazine in self.author_articles])
+        return list(category_set)
 
 class Magazine:
 
