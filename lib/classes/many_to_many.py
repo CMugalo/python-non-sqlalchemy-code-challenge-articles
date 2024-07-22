@@ -1,3 +1,4 @@
+from collections import Counter
 class Article:
     
     all = []
@@ -108,6 +109,10 @@ class Magazine:
         return [article.title for article in self.articles()]
 
     def contributing_authors(self):
-        pass
+        if len([article.author for article in self.articles()]) <= 2:
+            return None
+        return [article.author for article in self.articles()]
+        
+        
 
     
